@@ -25,6 +25,8 @@
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
+html{ scroll-behavior: smooth; }
+
 body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -99,6 +101,7 @@ body{
   padding:10px 10px;
   border-radius: 12px;
 }
+
 .nav a:hover{
   color: var(--text);
   background: var(--panel);
@@ -121,6 +124,7 @@ body{
   cursor:pointer;
   text-decoration:none;
 }
+
 .btn:hover{ filter: brightness(1.06); }
 .btn.ghost{ background: transparent; }
 
@@ -195,6 +199,7 @@ body{
   font-weight: 700;
   border-bottom: 1px solid color-mix(in srgb, var(--text) 30%, transparent);
 }
+
 .link:hover{ opacity:.9; }
 
 .card{
@@ -375,6 +380,7 @@ body{
   font-weight: 800;
   font-size: 12px;
 }
+
 .pbtn:hover{ filter: brightness(1.06); }
 
 .row{
@@ -387,10 +393,15 @@ body{
 .item-title{ font-weight: 900; }
 .item-sub{ color: var(--muted); margin-top: 6px; line-height:1.45; font-size: 13.5px; }
 
+/* Experience stack: force single-column cards */
 .stack{
   display:flex;
   flex-direction:column;
   gap: 12px;
+}
+
+.stack > .card{
+  width: 100%;
 }
 
 .skills{
@@ -424,9 +435,9 @@ body{
 @media (max-width: 980px){
   .hero{ grid-template-columns: 1fr; }
   .nav{ display:none; }
+  .badge{ white-space: normal; }
 }
 
 @media (max-width: 420px){
   .container{ width: min(var(--max), calc(100% - 28px)); }
-  .badge{ white-space: normal; }
 }
