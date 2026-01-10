@@ -3,15 +3,183 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Junxuan Li (William)</title>
+  <meta name="description" content="Junxuan Li (William) — AI/ML Engineer. Multimodal RAG, agents, on-device inference." />
+  <title>Junxuan Li (William) | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
-  <h1>Junxuan Li (William)</h1>
-  <p>AI / ML Engineer • Multimodal RAG • On-device Inference</p>
-  <p>
-    <a href="https://github.com/william-lijunxuan">GitHub</a> ·
-    <a href="https://linkedin.com/in/junxuan-li-william">LinkedIn</a> ·
-    <a href="https://huggingface.co/williamljx">Hugging Face</a>
-  </p>
+  <div class="bg"></div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">
+        <span class="dot"></span>
+        <span>Junxuan Li (William)</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn ghost" href="./assets/cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
+        <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="kicker">AI / ML Engineer • Multimodal RAG • On-device Inference</div>
+        <h1 class="title">
+          Portfolio of <span class="grad">Junxuan Li (William)</span>
+        </h1>
+        <p class="subtitle">
+          End-to-end systems: multimodal retrieval, agent workflows, evaluation-driven iteration, and mobile-friendly deployment.
+        </p>
+
+        <div class="meta">
+          <div class="pill">Aberdeen, Scotland, UK</div>
+          <div class="pill">Right to work in the UK (Graduate Route, expires 2028)</div>
+        </div>
+
+        <div class="links">
+          <a class="link" href="https://github.com/william-lijunxuan" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="link" href="https://linkedin.com/in/junxuan-li-william" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="link" href="https://huggingface.co/williamljx" target="_blank" rel="noreferrer">Hugging Face</a>
+          <a class="link" href="mailto:mr.william.li@foxmail.com">Email</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card profile">
+          <div class="profile-top">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <div class="profile-name">Junxuan Li (William)</div>
+              <div class="profile-role">AI/ML • Agents • RAG • Edge</div>
+            </div>
+          </div>
+
+          <div class="profile-grid">
+            <div class="stat">
+              <div class="stat-k">Focus</div>
+              <div class="stat-v">Reliable AI systems in production</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">Strength</div>
+              <div class="stat-v">Deployment-aware optimization</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">Domain</div>
+              <div class="stat-v">Healthcare agents & tooling</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">Stack</div>
+              <div class="stat-v">Java • Python • Kotlin</div>
+            </div>
+          </div>
+
+          <div class="callouts">
+            <div class="callout">Multimodal RAG + recall evaluation</div>
+            <div class="callout">Agent orchestration (LangGraph / ReAct)</div>
+            <div class="callout">On-device inference (quantization / conversion)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>Selected work with clear scope, metrics, and deployment constraints.</p>
+      </div>
+
+      <div id="projectGrid" class="grid"></div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p>Production ownership, stability, and performance work across high-concurrency financial systems.</p>
+      </div>
+
+      <div class="stack" id="experienceStack"></div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p>Engineering-first, with ML systems and tooling as the core.</p>
+      </div>
+
+      <div class="skills" id="skillsWrap"></div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-head">
+        <h2>Education</h2>
+        <p>Recent academic focus on evaluation, agents, and applied AI.</p>
+      </div>
+
+      <div class="card">
+        <div class="row">
+          <div>
+            <div class="item-title">University of Aberdeen — MSc Artificial Intelligence</div>
+            <div class="item-sub">09/2024–09/2025 • GPA: 16.39/22 (With Commendation) • Class Representative</div>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Symbolic AI</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Evaluation of AI Systems</span>
+          <span class="tag">Applied AI</span&#62;
+          <span class="tag">NLG</span>
+          <span class="tag">Knowledge Representation & Reasoning</span>
+          <span class="tag">Software Agents & MAS</span>
+          <span class="tag">Data Mining with Deep Learning</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Open to AI/ML engineering, agent/RAG systems, LLM/VLM evaluation, and on-device inference roles.</p>
+      </div>
+
+      <div class="contact">
+        <div class="card">
+          <div class="item-title">Email</div>
+          <a class="link" href="mailto:mr.william.li@foxmail.com">mr.william.li@foxmail.com</a>
+        </div>
+        <div class="card">
+          <div class="item-title">LinkedIn</div>
+          <a class="link" href="https://linkedin.com/in/junxuan-li-william" target="_blank" rel="noreferrer">
+            linkedin.com/in/junxuan-li-william
+          </a>
+        </div>
+        <div class="card">
+          <div class="item-title">CV</div>
+          <a class="link" href="./assets/cv.pdf" target="_blank" rel="noreferrer">Download CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> Junxuan Li (William). Built with GitHub Pages.</div>
+    </footer>
+  </main>
+
+  <script src="./data.js"></script>
 </body>
 </html>
