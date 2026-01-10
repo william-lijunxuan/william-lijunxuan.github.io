@@ -93,8 +93,12 @@ function el(tag, attrs = {}, children = []) {
 function renderProjects() {
   const grid = document.getElementById("projectGrid");
   for (const p of DATA.projects) {
+    const titleNode = p.titleLink
+      ? el("a", { class: "project-title-link", href: p.titleLink, target: "_blank", rel: "noreferrer" }, [p.title])
+      : el("span", {}, [p.title]);
+    
     const top = el("div", { class: "project-top" }, [
-      el("h3", {}, [p.title]),
+      el("h3", {}, [titleNode]),
       el("div", { class: "badge" }, [p.badge])
     ]);
 
