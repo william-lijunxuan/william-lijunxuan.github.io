@@ -84,7 +84,6 @@ function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
     if (k === "class") node.className = v;
-    else if (k === "html") node.innerHTML = v;
     else node.setAttribute(k, v);
   }
   for (const c of children) node.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
@@ -107,7 +106,7 @@ function renderProjects() {
     const tags = el("div", { class: "tags" });
     for (const t of p.tags) tags.appendChild(el("span", { class: "tag" }, [t]));
 
-    const actions = el("div", { class: "project-actions" });
+    const actions = el("div", { class: "project-actions" }, []);
     if (p.links && p.links.repo) {
       actions.appendChild(el("a", { class: "pbtn", href: p.links.repo, target: "_blank", rel: "noreferrer" }, ["Repo"]));
     }
@@ -145,7 +144,7 @@ function renderExperience() {
 function renderSkills() {
   const wrap = document.getElementById("skillsWrap");
   for (const s of DATA.skills) {
-    const list = el("div", { class: "skill-list" });
+    const list = el("div", { class: "skill-list" }, []);
     for (const i of s.items) list.appendChild(el("span", { class: "tag" }, [i]));
 
     wrap.appendChild(el("div", { class: "card skill-group" }, [
