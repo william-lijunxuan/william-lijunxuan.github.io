@@ -12,7 +12,11 @@ const DATA = {
         "Introduced query labeling + Top@K recall evaluation; improved multimodal retrieval recall from 63% to 88%",
         "Applied HyDE-based rewriting + retrieval fusion for descriptive queries; improved Top-3 recall by 22%"
       ],
-      tags: ["Multimodal RAG", "CLIP", "ChromaDB", "LoRA", "AWQ 4-bit", "MNN", "Android"]
+      tags: ["Multimodal RAG", "CLIP", "ChromaDB", "LoRA", "AWQ 4-bit", "MNN", "Android"],
+      links: {
+        repo: "",
+        demo: ""
+      }
     },
     {
       title: "MediAgent Hub — Healthcare Agent Platform",
@@ -25,7 +29,11 @@ const DATA = {
         "Added long-term, cross-session memory with automatic high-value info extraction and summarization",
         "Contributed to enterprise migration toward DAG-based engine; personalized RAG for doctors (80% agreement in blinded evaluations)"
       ],
-      tags: ["LangGraph", "ReAct", "WebSocket", "RAG", "Workflow", "Agent Platform"]
+      tags: ["LangGraph", "ReAct", "WebSocket", "RAG", "Workflow", "Agent Platform"],
+      links: {
+        repo: "",
+        demo: ""
+      }
     }
   ],
 
@@ -63,47 +71,29 @@ const DATA = {
   ],
 
   skills: [
-    {
-      group: "Languages",
-      items: ["Java", "Python", "Kotlin"]
-    },
-    {
-      group: "Backend & Data",
-      items: ["Spring Boot", "Spring Cloud", "Oracle", "Redis", "Kafka", "RocketMQ", "Spark", "Flink"]
-    },
-    {
-      group: "RAG & Agents",
-      items: ["Milvus", "ChromaDB", "LangChain", "LangGraph", "AutoGen", "MCP", "A2A"]
-    },
-    {
-      group: "ML",
-      items: ["PyTorch", "TensorFlow", "LoRA fine-tuning", "Multimodal pipelines", "Evaluation & metrics"]
-    },
-    {
-      group: "Infra",
-      items: ["Docker", "Kubernetes", "CI/CD", "AWS", "Azure", "GCP"]
-    },
-    {
-      group: "On-device",
-      items: ["Quantization", "Model conversion", "Mobile inference engine integration", "Offline execution"]
-    }
+    { group: "Languages", items: ["Java", "Python", "Kotlin"] },
+    { group: "Backend & Data", items: ["Spring Boot", "Spring Cloud", "Oracle", "Redis", "Kafka", "RocketMQ", "Spark", "Flink"] },
+    { group: "RAG & Agents", items: ["Milvus", "ChromaDB", "LangChain", "LangGraph", "AutoGen", "MCP", "A2A"] },
+    { group: "ML", items: ["PyTorch", "TensorFlow", "LoRA fine-tuning", "Multimodal pipelines", "Evaluation & metrics"] },
+    { group: "Infra", items: ["Docker", "Kubernetes", "CI/CD", "AWS", "Azure", "GCP"] },
+    { group: "On-device", items: ["Quantization", "Model conversion", "Mobile inference engine integration", "Offline execution"] }
   ]
 };
 
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
-  Object.entries(attrs).forEach(([k, v]) => {
+  for (const [k, v] of Object.entries(attrs)) {
     if (k === "class") node.className = v;
     else if (k === "html") node.innerHTML = v;
     else node.setAttribute(k, v);
-  });
-  children.forEach(c => node.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
+  }
+  for (const c of children) node.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
   return node;
 }
 
 function renderProjects() {
   const grid = document.getElementById("projectGrid");
-  DATA.projects.forEach(p => {
+  for (const p of DATA.projects) {
     const top = el("div", { class: "project-top" }, [
       el("h3", {}, [p.title]),
       el("div", { class: "badge" }, [p.badge])
@@ -112,19 +102,29 @@ function renderProjects() {
     const desc = el("p", { class: "desc" }, [p.desc]);
 
     const ul = el("ul", { class: "bullets" });
-    p.bullets.forEach(b => ul.appendChild(el("li", {}, [b])));
+    for (const b of p.bullets) ul.appendChild(el("li", {}, [b]));
 
     const tags = el("div", { class: "tags" });
-    p.tags.forEach(t => tags.appendChild(el("span", { class: "tag" }, [t])));
+    for (const t of p.tags) tags.appendChild(el("span", { class: "tag" }, [t]));
 
-    const card = el("div", { class: "card project" }, [top, desc, ul, tags]);
-    grid.appendChild(card);
-  });
+    const actions = el("div", { class: "project-actions" });
+    if (p.links && p.links.repo) {
+      actions.appendChild(el("a", { class: "pbtn", href: p.links.repo, target: "_blank", rel: "noreferrer" }, ["Repo"]));
+    }
+    if (p.links && p.links.demo) {
+      actions.appendChild(el("a", { class: "pbtn", href: p.links.demo, target: "_blank", rel: "noreferrer" }, ["Demo"]));
+    }
+
+    const children = [top, desc, ul, tags];
+    if (actions.childNodes.length > 0) children.push(actions);
+
+    grid.appendChild(el("div", { class: "card project" }, children));
+  }
 }
 
 function renderExperience() {
   const wrap = document.getElementById("experienceStack");
-  DATA.experience.forEach(e => {
+  for (const e of DATA.experience) {
     const row = el("div", { class: "row" }, [
       el("div", {}, [
         el("div", { class: "item-title" }, [e.title]),
@@ -133,25 +133,26 @@ function renderExperience() {
     ]);
 
     const ul = el("ul", { class: "bullets" });
-    e.bullets.forEach(b => ul.appendChild(el("li", {}, [b])));
+    for (const b of e.bullets) ul.appendChild(el("li", {}, [b]));
 
     const tags = el("div", { class: "tags" });
-    e.tags.forEach(t => tags.appendChild(el("span", { class: "tag" }, [t])));
+    for (const t of e.tags) tags.appendChild(el("span", { class: "tag" }, [t]));
 
     wrap.appendChild(el("div", { class: "card" }, [row, ul, tags]));
-  });
+  }
 }
 
 function renderSkills() {
   const wrap = document.getElementById("skillsWrap");
-  DATA.skills.forEach(s => {
+  for (const s of DATA.skills) {
     const list = el("div", { class: "skill-list" });
-    s.items.forEach(i => list.appendChild(el("span", { class: "tag" }, [i])));
+    for (const i of s.items) list.appendChild(el("span", { class: "tag" }, [i]));
+
     wrap.appendChild(el("div", { class: "card skill-group" }, [
       el("div", { class: "item-title" }, [s.group]),
       list
     ]));
-  });
+  }
 }
 
 function setupTheme() {
