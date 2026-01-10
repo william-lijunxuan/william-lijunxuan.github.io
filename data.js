@@ -2,6 +2,7 @@ const DATA = {
   projects: [
     {
       title: "Skinalor — Offline Dermatology Assistant",
+      titleLink: "https://www.linkedin.com/posts/junxuan-li-william_skinalor-an-offline-on-device-dermatology-activity-7405392337754824704-wgmD/",
       badge: "VLM + RAG • Android Edge",
       desc: "A privacy-first, fully offline workflow from user intake to structured report generation with deployment-aware optimization.",
       bullets: [
